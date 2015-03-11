@@ -2,7 +2,7 @@ package base;
 
 import java.util.Date;
 
-public class User {
+public class User implements Comparable<User>{
 	private int userId;
 	private String userName;
 	private String userEmail;
@@ -32,6 +32,22 @@ public class User {
 	}
 	public void setuserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+
+	@Override
+	public int compareTo(User u) {
+		// TODO Auto-generated method stub
+		
+		if(this.userId > u.getuserId())
+			return 1;
+		
+		if(this.userId < u.getuserId())
+			return -1;
+		
+		if(this.userId == u.getuserId())
+			return 0;
+		
+		return 0;
 	}
 	
 }

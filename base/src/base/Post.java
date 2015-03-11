@@ -4,7 +4,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Post {
+public class Post implements Comparable<Post> {
 	private Date date;
 	private String content;
 	public Post(Date date, String content) {
@@ -55,6 +55,21 @@ public class Post {
 	        return true;
 	    }
 		return false;
+	}
+	@Override
+	public int compareTo(Post p) {
+		// TODO Auto-generated method stub
+		
+		if(this.date.before(p.date) )
+		  return -1;
+		
+		
+		if(this.date.after(p.date))
+			return 1;
+		
+		if(this.date.equals(p.date))
+			return 0;
+		return 0;
 	}
 	
 }
